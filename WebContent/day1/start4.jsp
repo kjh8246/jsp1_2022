@@ -11,7 +11,7 @@
 <title>jsp start4</title>
 <style type="text/css">
 	table{
-		style="width:70%;margin:auto;border-collapse: collapse;
+		width:70%;margin:auto;border-collapse: collapse;
 	}
 	caption {
 		text-align: right;font-size: 0.8em;
@@ -44,13 +44,19 @@
 			<th>거주지</th>
 		</tr>
 		<!-- 아래의 1행 한명의 MyUser 객체 출력을 list 크기만큼 반복합니다. -->
-		
+<%
+		for(int i=0;i<list.size();i++) {			//for(MyUer user : list)
+			MyUser user = list.get(i);
+%>		
 		<tr> <!-- MyUser 타입 객체의 데이터를 출력 -->
-			<td><%=sana.getName() %></td>
-			<td><%=sana.getAge() %></td>
-			<td><%=sana.getAddress() %></td>
+			<td><%=user.getName() %></td>
+			<%-- <td><%=list.get(i).getName() %></td> --%>
+			<td><%=user.getAge() %></td>
+			<td><%=user.getAddress() %></td>
 		</tr>
-		
+<%
+		}
+%>		
 	</table>
 </body>
 </html>
