@@ -1,3 +1,5 @@
+<%@page import="day1.Custom"%>
+<%@page import="day1.CustomDao"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -25,37 +27,32 @@
 </style>
 </head>
 <body>
+<!-- 오라클과 jdbc 연결을 위해서 ojdbc6.jar 라이브러리 추가해야 합니다.
+: [WebContent 폴더]  - [WEB-INF폴더] - [lib] 폴더에 파일을 복사합니다.
+ -->
 <%
-	List<MyUser> list = new ArrayList<>();
-	MyUser sana = new MyUser("이사나",24,"서울시 강남구 역삼동");	//데이터 객체 생성
-	list.add(sana);
-	list.add(new MyUser("정연",19,"서울시 종로구"));
-	list.add(new MyUser("모모",25,"경기도 성남시"));
-	list.add(new MyUser("나연",17,"서울시 용산구"));
+	CustomDao dao = CustomDao.getCustomDao();
+	List<Custom> list = dao.selectAll();
 %>
+	<h3>TBL_CUSTOM# 테이블 데이터</h3>
 	<table>
 		<caption>현재 시간 : <%= LocalDate.now() %></caption>
 		<tr>
-			<th>이름</th>
+			<th>회원ID</th>
+			<th>회원이름</th>
+			<th>이메일</th>
 			<th>나이</th>
-			<th>거주지</th>
-			<th>비고</th>
 		</tr>
 		<!-- 아래의 1행 한명의 MyUser 객체 출력을 list 크기만큼 반복합니다. -->
 <%
 		for(int i=0;i<list.size();i++) {			//for(MyUer user : list)
-			MyUser user = list.get(i);
+			Custom custom = list.get(i);
 %>		
 		<tr> <!-- MyUser 타입 객체의 데이터를 출력 -->
-			<td><%=user.getName() %></td>
-			<%-- <td><%=list.get(i).getName() %></td> --%>   <!-- 표현식을 포함하는 주석은 기호가 다릅니다. -->
-			<td><%=user.getAge() %></td>
-			<td><%=user.getAddress() %></td>
-			<td>
-				<%
-					if(user.getAge()<20) out.print("청소년");				
-				%>
-			</td>
+			<td><%= custom.getCustom_id()%></td>
+			<td><%= custom.getName()%></td>
+			<td><%= custom.getEmail()%></td>
+			<td><%= custom.getAge()%></td>
 		</tr>
 <%
 		}
