@@ -12,8 +12,7 @@ public class ProductDao {
 	
 	//지금 Dao 역할 클래스는 전역변수(클래스의 프로퍼티) 가 없습니다.
 	//-> 객체를 new 로 새로 만들어서 메모리 할당받아도  저장할 데이터가 없습니다.
-	//-> 그래서 메소드만 실행하도록 싱글톤 패턴으로 객체를 생성하도록 구현했습니다.
-	
+	//-> 그래서 메소드만 실행하도록 "싱글톤 패턴"으로 객체를 생성하도록 구현했습니다.
 	private static ProductDao productdao = new ProductDao();
 	private ProductDao() {		//new ProductDao()로 객체를 생성못해요.
 	}
