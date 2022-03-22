@@ -16,7 +16,7 @@ public class TemplateDao {  //dao 만들때마다 참고하세요.
 	//싱글톤 패턴
 	private static TemplateDao dao = new TemplateDao(); 
 	private TemplateDao() { }
-	public static TemplateDao getCustomDao() {
+	public static TemplateDao getInstance() {
 		return dao;
 	}
 	

@@ -106,7 +106,7 @@ public class HrdProblemDao {
 				" (SELECT custno, sum(price) AS asum FROM MONEY_TBL_02 mt " + 
 				" GROUP BY CUSTNO" + 
 				" ORDER BY asum desc) sale" + 
-				" WHERE mt.CUSTNO = sale.custno ";
+				" WHERE mt.CUSTNO = sale.custno order by custno";
 		PreparedStatement pstmt = null;
 		ResultSet rs= null;		
 		List<SaleSum> sales = new ArrayList<>();
@@ -115,7 +115,9 @@ public class HrdProblemDao {
 			rs=pstmt.executeQuery();	//select 
 			
 			while(rs.next()) {
-				
+				SaleSum temp = new SaleSum(rs.getInt(1), 
+						rs.getString(2), rs.getString(3), rs.getInt(4));
+				sales.add(temp);
 				
 			}
 			pstmt.close();
