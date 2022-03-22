@@ -26,6 +26,7 @@
 </head>
 <body>
 <%
+	/* List<T>에서 T는 제너릭 타입이라고 합니다. */
 	List<MyUser> list = new ArrayList<>();
 	MyUser sana = new MyUser("이사나",24,"서울시 강남구 역삼동");	//데이터 객체 생성
 	list.add(sana);

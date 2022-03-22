@@ -10,8 +10,12 @@ import java.util.List;
 public class ProductDao {
 	//변수명 한꺼번에 바꾸기 : alt + shift + r (커서놓고 해야함)
 	
+	//지금 Dao 역할 클래스는 전역변수(클래스의 프로퍼티) 가 없습니다.
+	//-> 객체를 new 로 새로 만들어서 메모리 할당받아도  저장할 데이터가 없습니다.
+	//-> 그래서 메소드만 실행하도록 싱글톤 패턴으로 객체를 생성하도록 구현했습니다.
+	
 	private static ProductDao productdao = new ProductDao();
-	private ProductDao() {
+	private ProductDao() {		//new ProductDao()로 객체를 생성못해요.
 	}
 	public static ProductDao getProductDao() {
 		return productdao;
@@ -31,7 +35,7 @@ public class ProductDao {
 			pstmt.setInt(4, vo.getPrice());
 			
 			pstmt.execute();
-			System.out.println("고객 1건이 새로 등록되었습니다.!!");
+			System.out.println("상품 1건이 등록되었습니다.");
 			pstmt.close();
 		}catch (SQLException e) {
 			System.out.println("SQL 실행 오류 : " +  e.getMessage());
