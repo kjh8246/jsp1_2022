@@ -12,6 +12,9 @@
 	 ** 이 파일은 ㄴ구글 폴더에 업로드 하세요.**
 -->
 <%
+	//method='post' 방식으로 데이터 전달되었을 때 인코딩 꼭 하세요.
+	request.setCharacterEncoding("UTF-8");
+
 	//hobby 파라미터 받아서 출력하는 것은 잘 안되면 빼놓고 해도 됩니다.
 	String name = request.getParameter("name");   
 	String email = request.getParameter("email");

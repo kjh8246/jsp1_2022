@@ -15,7 +15,7 @@
 	     							사용자 요청의 url 인코딩은 기본이 utf-8
 	     							url에 사용자 입력값이 보입니다.
 	     							form태그 사용 외에도 a태그 href 속성값에 url로 전달할수 있습니다.
-	                method='post' 로하면 : form data 로 입력값 전달(데이터 저장)
+	                method='post' 로하면 : form data 로 입력값 전달(데이터 저장할 때 사용)
 	                				이때 form data 인코딩은 직접 설정이 필요합니다.
 	                				url에 사용자 입력값이 없습니다.
 							day2의 memberReg.html의 method는 'post'로 합니다.	      
