@@ -17,6 +17,28 @@ public class HrdMemberDao {
 			return dao;
 		}
 		
+		//회원정보수정 : phone,address,city 컬럼만 수정하고 조건은 기본키 값입니다.  -> 줌 dm 채팅으로 이 부분 코드 보내주세요.
+		public void update(HrdMember vo) {
+			Connection conn = OracleConnectUtil.connect();
+			PreparedStatement pstmt = null;
+			String sql = "UPDATE MEMBER_TBL_02 SET phone=?, address=?, city=? "
+					+ "WHERE custno = ?";
+			try {
+				pstmt = conn.prepareStatement(sql);
+
+				pstmt.setString(1, vo.getPhone());
+				pstmt.setString(2, vo.getAddress());
+				pstmt.setString(3, vo.getCity());
+				pstmt.setInt(4, vo.getCustNo());
+				pstmt.execute();
+				pstmt.close();
+
+			} catch (SQLException e) {
+				System.out.println("HrdMemberDao update 오류 :" + e.getMessage());
+			}
+				OracleConnectUtil.close(conn);
+		}
+		
 		public HrdMember selectOne(int custno) {   //기본키 값으로 조회
 			Connection conn=OracleConnectUtil.connect();
 			ResultSet rs = null;

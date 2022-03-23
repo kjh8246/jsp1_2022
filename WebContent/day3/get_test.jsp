@@ -1,4 +1,4 @@
-<%@page import="koreait.vo.HrdMember"%>
+﻿<%@page import="koreait.vo.HrdMember"%>
 <%@page import="java.util.List"%>
 <%@page import="koreait.dao.HrdMemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

@@ -49,7 +49,7 @@ public class TemplateDao {  //dao 만들때마다 참고하세요.
 			//? 파라미터에 넘겨줄 값을 set메소드로 설정합니다.
 			
 			pstmt.execute();
-			System.out.println("ㄴ수정이 완료 되었습니다.");
+			System.out.println("수정이 완료 되었습니다.");
 			pstmt.close();
 		}catch (SQLException e) {
 			System.out.println("SQL 실행 오류 : " +  e.getMessage());
