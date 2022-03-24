@@ -21,7 +21,7 @@
 	vo.setAddress(address);
 	vo.setPhone(phone);
 	vo.setCity(city);
-	vo.setCustNo(custno);
+	vo.setCustNo(custno);   
 	out.print(vo);			//확인
 	
 	HrdMemberDao dao = HrdMemberDao.getInstance();

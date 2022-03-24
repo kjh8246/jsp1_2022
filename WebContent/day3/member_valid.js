@@ -4,7 +4,7 @@ function valid_check() {
     const telf = frm.tel
     const addrf = frm.addr
     const gradef = frm.grade.value
-    const grades = ['A','B','C','D']
+    const grades = ['A','B','C']
     const cityf = frm.city_code.value;      //도시코드값 - 조건:숫자로만 2자리
     const temp = parseInt(cityf);   
     //*cityf 에 시작문자가 숫자가 아니면 정수변환이 안되고 결과값이 NaN 가 됩니다.*
@@ -21,6 +21,11 @@ function valid_check() {
       telf.focus()
       isValid=false
     }
+ 	else if(telf.value.length > 13){
+      alert('전화번호는 최대 13개 숫자 입니다.')
+      telf.focus()
+      isValid=false
+    }
     else if(addrf.value == ""){
       alert('주소를 입력해주세요')
       addrf.focus()
@@ -28,7 +33,7 @@ function valid_check() {
     }else 
     if (grades.indexOf(gradef)==-1){
         //console.log(grades.indexOf(gradef))
-        alert('A,B,C,D 중 하나만 입력해주십시오');    //테스트를 위해 D도 추가합니다.
+        alert('A,B,C 중 하나만 입력해주십시오');    //테스트를 위해 D도 추가합니다.
         isValid= false;
     } else 
     if(cityf.length!=2) {
