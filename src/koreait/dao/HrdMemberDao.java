@@ -94,6 +94,7 @@ public class HrdMemberDao {
 			}catch (SQLException e) {
 				System.out.println("HrdMemberDao selectAll 오류 : " + e.getMessage());
 			}
+			OracleConnectUtil.close(conn);
 			
 			return list;
 		}

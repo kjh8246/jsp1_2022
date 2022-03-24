@@ -26,7 +26,7 @@ button {
     margin: 5px;
 }
 </style>
-<!-- src속성에 지정한 자바스크립트 소스가 그대로 삽입됩니다. -->
+<!-- src속성에 지정한 자바스크립트 파일 소스가 그대로 삽입됩니다. -->
 <script src="member_valid.js"></script>
 <script type="text/javascript">
 	function isSubmit(){
@@ -36,7 +36,6 @@ button {
 			frm.submit();
 		}
 	}
-
 </script>
 </head>
 <body>
@@ -77,7 +76,9 @@ button {
 	<input value="<%= member.getAddress() %>"> 
 	<input value="<%= member.getGrade() %>"> 
 	<input value="<%= member.getCity() %>">  --%>
-	
+<%
+	if(member !=null) {
+%>	
 	
 	  <h4 style="text-align: center;">홈쇼핑 회원 수정</h4>
         <form action="member_update.jsp" method="post">  
@@ -126,5 +127,8 @@ button {
 
             </table>
         </form>
+<%
+	}
+%>        
 </body>
 </html>
