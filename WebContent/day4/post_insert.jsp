@@ -39,15 +39,21 @@ button {
 </script>
 </head>
 <body>
+<%
+		HrdMemberDao dao = HrdMemberDao.getInstance();
+		int next = dao.getNextSeq();
+
+%>
 	<!-- Dao클래스에 insert() 메소드를 만듭니다. - 지금 이 화면을 등록화면에 맞게 수정하세요.
 	     - member_insert.jsp 를  구현하세요.(사용자 입력값으로 db테이블에 insert하기)    -->
 	  <h4 style="text-align: center;">홈쇼핑 회원 등록</h4>
         <form action="member_insert.jsp" method="post">  
+        	<input name="num" type="hidden" value="<%= next %>">
             <table style="width:70%;margin:auto;">
                 <tr>
                     <td class="col1_title">회원번호</td>
-                    <td><input type="text" name="num" disabled="disabled"></td>  
-                    <!-- disabled 가 설정되어 있으면 파라미터값 전달안됩니다. -->
+                    <td><input type="text" name="num" value="<%= next%>" disabled="disabled"></td>  
+                    <!-- disabled 가 설정되어 있으면 파라미터값 전달안됩니다. : 필요한값은 hidden으로 전달합니다. -->
                 </tr>
                 <tr>
                     <td class="col1_title">회원성명</td>
