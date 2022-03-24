@@ -23,7 +23,7 @@
 		dao.insert(vo);
 		out.print(dao.selectOne(vo.getCustNo()));    //dao.selectOne(vo.getCustNo())널이 아니면 정상등록완료
 		if(dao.selectOne(vo.getCustNo()) !=null) {
-			out.print("<script>alert('회원등록 완료했습니다.!')");
+			out.print("<script>alert('회원등록 완료했습니다.!');location.href='post_insert.jsp'");
 			out.print("</script>");
 		}	
 		
