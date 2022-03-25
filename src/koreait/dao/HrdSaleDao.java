@@ -8,10 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import day1.OracleConnectUtil;
-import day2.vo.SaleSum;
+import koreait.vo.SaleSum;
+
 
 public class HrdSaleDao {
 
+	private static HrdSaleDao dao = new HrdSaleDao();
+	private HrdSaleDao() {  }
+	public static HrdSaleDao getInstance() {
+		return dao;
+	}
 	
 	
 	public List<SaleSum> selectSale(){
