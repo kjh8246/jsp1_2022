@@ -152,6 +152,36 @@ public class HrdMemberDao {
 		
 		
 		
+		//이름을 전달받아 검색
+		public List<HrdMember> searchName(String name){
+			Connection conn = OracleConnectUtil.connect();
+			ResultSet rs =null;
+			PreparedStatement pstmt=null;
+			String sql = "select * from member_tbl_02 where custname=?";
+			List<HrdMember> list = new ArrayList<HrdMember>();
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, name);
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					//테이블 조회된 컬럼을 자바 객체로 생성해서 저장.(매핑)
+					list.add(new HrdMember(rs.getInt(1), 
+							rs.getString(2), 
+							rs.getString(3), 
+							rs.getString(4), 
+							rs.getDate(5), 
+							rs.getString(6), 
+							rs.getString(7)));
+				}
+				
+			}catch (SQLException e) {
+				System.out.println("HrdMemberDao selectAll 오류 : " + e.getMessage());
+			}
+			OracleConnectUtil.close(conn);
+			
+			return list;
+		}
 		
 		
 }

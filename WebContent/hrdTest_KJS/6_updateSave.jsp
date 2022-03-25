@@ -14,6 +14,7 @@
 	//phone,address,city 입력값 가져오기 와 update 조건값 custno 도 가져오기
 	String phone = request.getParameter("tel");
 	String address = request.getParameter("addr");
+//	String grade = request.getParameter("grade");   //수정못하도록 함.
 	String city = request.getParameter("city_code");
 	int custno = Integer.parseInt(request.getParameter("num"));
 	
@@ -22,6 +23,7 @@
 	vo.setPhone(phone);
 	vo.setCity(city);
 	vo.setCustNo(custno);   
+//	vo.setGrade(grade);
 	
 	
 	HrdMemberDao dao = HrdMemberDao.getInstance();

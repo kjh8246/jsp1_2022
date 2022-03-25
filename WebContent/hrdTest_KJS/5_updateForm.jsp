@@ -103,6 +103,9 @@ button {
                 form 태그 속성 method="post" 있을때 와 없을 때 차이점이 있습니다. -> 백엔드 배우고 확인.
             -->
                <input type="hidden" name="num" value="<%= member.getCustNo() %>" >
+               <!-- hidden 추가 대신 사용할 다른 방법은 회원번호 input의 readonly="readonly" 속성으로 합니다
+               		입력불가를 표현하기 위한 css가 필요합니다.
+                -->
                 <table style="width: 70%;margin:auto">
                     <tr>
                         <td class="col1_title">회원번호(자동발생)</td>
@@ -127,7 +130,8 @@ button {
                     </tr>
                     <tr>
                         <td class="col1_title">고객등급[A:VIP,B:일반,C:직원]</td>
-                        <td><input type="text" name="grade" value="<%= member.getGrade() %>" ></td>
+                        <td><input type="text" name="grade" value="<%= member.getGrade() %>" 
+                        	disabled="disabled"></td>
                     </tr>
                     <tr>
                         <td class="col1_title">도시코드</td>

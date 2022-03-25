@@ -13,6 +13,7 @@
 </head>
 	
 <body>
+<div class="wrap_container">
   <header>
         <h3 class="header-item">쇼핑몰 회원관리 ver1.0</h3>
     </header>
@@ -51,12 +52,11 @@
 			<%
 				}
 			%>					
-              	
             </table>
-
         </section>
     <footer>
         <p>HRDKOREA Copyrightⓒ2016 All rights reserved. Human Resources Development Service of Korea</p>
     </footer>
+    </div>
 </body>
 </html>
